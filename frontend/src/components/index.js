@@ -1,3 +1,7 @@
-import ContactChip from "./ContactChipComponent";
+import Chip from "./ChipComponent";
+import Card from "./CardComponent";
 
-export { ContactChip };
+export {
+  Chip,
+  Card
+};
