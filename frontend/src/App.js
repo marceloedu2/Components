@@ -11,16 +11,39 @@ const Container = styled.body`
   flex-direction: column;
   align-items: center;
 `
+const CardBallon = styled.div`
+  position: relative;
+  display:inline-block;
+  width: 300px;
+  border-bottom: 1px dotted black;
+`
 
 export default function App() {
   return (
     <Container>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <Ballon text="Ballon de teste">
+        <CardBallon>
+          Button Ballon
+        </CardBallon>
+      </Ballon>
+      <br/>
+      <br/>
+      <br/>
       <Chip 
         avatar={'https://abrilexame.files.wordpress.com/2018/10/8dicas1.jpg?quality=70&strip=info&w=382&h=382'}
         name={'Marcelo Eduardo Araujo'}
       />
       <Chip />
-      <Card image={'https://images2.minutemediacdn.com/image/upload/c_crop,h_3487,w_6203,x_0,y_38/f_auto,q_auto,w_1100/v1553265659/shape/mentalfloss/istock-931058552.jpg'}/>
+      <Card 
+        image={'https://i.all3dp.com/cdn-cgi/image/fit=cover,w=1284,h=722,gravity=0.5x0.5,format=auto/wp-content/uploads/2018/12/28144052/background-images-can-come-in-handy-when-modeling-tian-ooi-all3dp-181228.jpg'}
+        title={'Nature life'}
+        subtitle={'Welcome to Nature'}
+        text={'Organizations or initiatives that work to clean up nature and the planet'}
+      />
       <Card />
     </Container>
   );
