@@ -1,46 +1,72 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import styled from 'styled-components'
 
 const BallonDiv = styled.div`
   position: relative;
-  display:inline-block;
-  border-bottom: 1px dotted black;
+  margin: 10px;
 `
 const BallonText = styled.span`
-  visibility: hidden;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 120px;
+  height: 30px;
   background-color: #555;
   color: #fff;
   text-align: center;
   border-radius: 6px;
   padding: 5px 0;
-  position: absolute;
-  z-index: 1;
   bottom: 125%;
-  left: 50%;
-  margin-left: -60px;
-  opacity: 0;
+  cursor: pointer;
+  margin-top:-15px;
+  margin-left: 20px;
   transition: opacity 0.3s;
-  &:efter{
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
-  }
-  ${BallonDiv}:hover &{
-    visibility: visible;
-    opacity: 1;
-  }
+  &:after {
+  content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 15px solid transparent;
+	border-right-color: #555;
+	border-left: 0;
+	border-bottom: 0;
+	margin-top: -13px;
+	margin-left: -14px;
+}
 `
-const Ballon = () => {
+const Ballon = (props) => {
+  const [position, setPosition] = useState({
+    top: null,
+    left: null,
+    opacity: 0
+  })
+
+  const element = useRef(null)
+
+  const onMouseMove = ({ clientX, clientY }) => {
+    const { top, left, bottom, right } = element.current.getBoundingClientRect()
+    if (clientX > right || clientX < left || clientY > bottom || clientY < top) {
+      onMouseLeave()     
+    } else {
+      setPosition({ top: clientY - top, left: clientX - left })
+    }
+  }
+
+  const onMouseLeave = () => {
+    setPosition({ opacity: 0, display: 'none' })
+  }
+
+  const onMouseEnter = () => {
+    setPosition({ opacity: 1 })
+  }
+
   return (
-    <BallonDiv>
-      TESTE
-      <BallonText>TESTADO</BallonText>
+    <BallonDiv onMouseLeave={onMouseLeave} onMouseMove={onMouseMove} onMouseEnter={onMouseEnter} ref={element}>
+      { props.children }
+      <BallonText style={position}>{props.text ? props.text : 'Uninformed'}</BallonText>
     </BallonDiv>
   );
 }

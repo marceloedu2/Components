@@ -1,5 +1,5 @@
 import React from 'react';
-import { Chip, Card } from "./components";
+import { Chip, Card, Ballon } from "./components";
 import './App.css'
 import styled from 'styled-components'
 
@@ -12,27 +12,16 @@ const Container = styled.body`
   align-items: center;
 `
 const CardBallon = styled.div`
-  position: relative;
   display:inline-block;
   width: 300px;
+  height: 300px;
+  background-color: gray;
   border-bottom: 1px dotted black;
 `
 
 export default function App() {
   return (
     <Container>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <Ballon text="Ballon de teste">
-        <CardBallon>
-          Button Ballon
-        </CardBallon>
-      </Ballon>
-      <br/>
-      <br/>
-      <br/>
       <Chip 
         avatar={'https://abrilexame.files.wordpress.com/2018/10/8dicas1.jpg?quality=70&strip=info&w=382&h=382'}
         name={'Marcelo Eduardo Araujo'}
@@ -45,6 +34,12 @@ export default function App() {
         text={'Organizations or initiatives that work to clean up nature and the planet'}
       />
       <Card />
+      <Ballon text="Ballon de teste">
+        <CardBallon />
+      </Ballon>
+      <Ballon>
+        <CardBallon />
+      </Ballon>
     </Container>
   );
 }
