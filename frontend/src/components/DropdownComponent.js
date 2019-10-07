@@ -37,32 +37,30 @@ const DropItemLi = styled.li`
 
 const Dropdown = (props) => {
   const [drop, setDrop] = useState({
-    display: 'none',
-    background: '#fff',
-    color: '#333240',
-    border: '2px solid #333240',
+    open: false,
   })
-  const handleButtonClick  = (event) => {
-    if (drop.display === 'none'){
-      setDrop({ display: 'block' })
-    }else{
-      setDrop({ display: 'none' })
-    }
+  const [select, setSelect] = useState({
+    label: '',
+  })
+  const handleButtonClick  = () => {
+    setDrop({open: !drop.open})
   }
 
-  const handleClickOutside  = (event) => {
-    setDrop({display: 'none'})
+  const handleClickSelected = (label) => {
+    setDrop({ open: false})
+    setSelect({label})
   }
 
   return (
-    <DropUl onClick={handleButtonClick } onClose={handleClickOutside}>
+    
+    <DropUl onClick={ handleButtonClick }>
       <DropUlLabel >
-        {props.label}
+        {select.label ? select.label : props.label}
       </DropUlLabel>
-      <DropDivLi style={ drop }>
+      <DropDivLi style={ { display: !drop.open ? 'none': 'block' } }>
         { 
           props.options.map(option => (
-            <DropItemLi key={option.value} onClick={handleClickOutside}>
+            <DropItemLi key={option.value} value={option.value} onClick={() => handleClickSelected(option.label)}>
               { option.label }
             </DropItemLi>
           ))
