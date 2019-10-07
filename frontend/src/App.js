@@ -42,17 +42,42 @@ export default function App() {
       />
       <Card />
       <Quest>3 - Create your own Balloon component and style it.</Quest>
-      <Ballon text="Ballon de teste">
-        <CardBallon />
+      <Ballon text="Brasileiros falharam na concretização, sofrendo 34 a 32 na Overpass; Na Inferno não encontraram jogo do lado CT">
+        <Card 
+          image={'https://www.maisesports.com.br/wp-content/uploads/2018/07/furia-cs-go.jpg'}
+          title={'FURIA 0x2 FNATIC'}
+          subtitle={'FURIA trava duelo na Overpass'}
+          text={''}
+        />
       </Ballon>
       <Ballon>
-        <CardBallon />
+        <Card 
+          image={'https://www.maisesports.com.br/wp-content/uploads/2018/07/furia-cs-go.jpg'}
+          title={'FURIA 0x2 FNATIC'}
+          subtitle={'FURIA trava duelo na Overpass'}
+          text={'Brasileiros falharam na concretização, sofrendo 34 a 32 na Overpass; Na Inferno não encontraram jogo do lado CT'}
+        />
       </Ballon>
       <Quest>4 - Create your own Dropdown component and style it.</Quest>
       <Dropdown 
-        title="Dropdown"
-        item="Option 1"
+        options={[
+          {label: 'one', value: 1},
+          {label: 'two', value: 2},
+          {label: 'three', value: 3}
+          ]}
+          label={'label'}
       />
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
     </Container>
   );
 }

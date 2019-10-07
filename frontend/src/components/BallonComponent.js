@@ -10,32 +10,31 @@ const BallonText = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 120px;
-  height: 30px;
-  background-color: #555;
+  width: 250px;
+  padding: 10px;
+  background: rgba(51, 50, 64, 0.8);
+  border: 2px solid #333240;
   color: #fff;
   text-align: center;
   border-radius: 6px;
-  padding: 5px 0;
-  bottom: 125%;
-  cursor: pointer;
+  padding: 10px;
   margin-top:-15px;
   margin-left: 20px;
   transition: opacity 0.3s;
   &:after {
-  content: '';
-	position: absolute;
-	left: 0;
-	top: 50%;
-	width: 0;
-	height: 0;
-	border: 15px solid transparent;
-	border-right-color: #555;
-	border-left: 0;
-	border-bottom: 0;
-	margin-top: -13px;
-	margin-left: -14px;
-}
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 15px;
+    width: 0;
+    height: 0;
+    border: 15.5px solid transparent;
+    border-right-color: #333240;
+    border-left: 0;
+    border-bottom: 0;
+    margin-top: -13px;
+    margin-left: -16px;
+  }
 `
 const Ballon = (props) => {
   const [position, setPosition] = useState({
@@ -66,7 +65,7 @@ const Ballon = (props) => {
   return (
     <BallonDiv onMouseLeave={onMouseLeave} onMouseMove={onMouseMove} onMouseEnter={onMouseEnter} ref={element}>
       { props.children }
-      <BallonText style={position}>{props.text ? props.text : 'Uninformed'}</BallonText>
+      <BallonText style={position}>{props.text ? props.text : 'Undefined'}</BallonText>
     </BallonDiv>
   );
 }

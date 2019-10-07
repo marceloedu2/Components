@@ -55,7 +55,7 @@ const Chip = (props) => {
         height="50"
       />
       <span>
-        {props.name ? props.name : 'Uninformed'}
+        {props.name ? props.name : 'Undefined'}
       </span>
       <CloseButton onClick={() => setShow(false)}>&times;</CloseButton>
     </Contact>

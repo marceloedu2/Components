@@ -10,6 +10,7 @@ const CardDiv = styled.div`
   box-shadow: 7px 7px 5px rgba(50, 50, 50,0.77);
   transition: .3s cubic-bezier(.3, 0, 0, 1.3);
   overflow: hidden;
+  cursor: pointer;
   &:hover{
     width: 320px;
     height: 420px;
@@ -89,7 +90,7 @@ const Button = styled.button`
 const Card = (props) => {
   return (
     <CardDiv>
-      <CardImg image={props.image ? props.image : 'http://pointpool.com.br/wp-content/uploads/2017/11/grunge-background-azul.jpg'}></CardImg>
+      <CardImg image={props.image ? props.image : 'https://semantic-ui.com/images/wireframe/image.png'}></CardImg>
       <CardBody>
         <CardTitle>{props.title ? props.title : 'Card title'}</CardTitle>
         <CardSubtitle>{props.subtitle ? props.subtitle : 'Card subtitle'}</CardSubtitle>
